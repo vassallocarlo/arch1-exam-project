@@ -41,16 +41,12 @@ Memorizzazione:
 
 
 ## Componenti
-Ogni componente di questo pregetto, fatta eccezzione per le porte logiche e led, è stato realizzato personalmente.
+Ogni componente di questo progetto, fatta eccezzione per le porte logiche e i led, è stato realizzato personalmente.
 
 Componenti base:
 - **Flip-Flop D**
 - **Selettore** da 2 vie da 6 bit
 - **Selettore** da 64 vie da 2 bit
-
-Sottocomponenti:
-- **RGB led**
-- **Led Driver**
 
 Componenti:
 - **Keypad** (x2)
@@ -59,6 +55,33 @@ Componenti:
 - **Unita centrale** (x1)
 - **Controllore di stato** (x2)
 
+### Display
+![Display Appearance](./screenshot/display.out.png)
+![Display inner](./screenshot/display.driver.inner.png)
+Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie navi ed è composto da:
+- **96 led:** in gruppi da quatto che rappresentano le celle della griglia di gioco. Ogni cella puo assumere la colorazione interamente blu, se contiene acqua, interamente grigia se contiene un segmento di nave, metà grigia e meta blu a formare una croce se rappresenta un segmento di nave che è stato colpito. Per ottenere 2 colori è stato settato come colore del led spento il colore celeste e grigio per il led acceso. La tensione su ogni led è gestita dal driver del display.
+- **Display Driver:** questo componente, che possiamo immaginare come lo chassis del display, ha il compito di accendere a dovere ogni led in modo da rispecchiare la griglia di gioco salvata in memoria. Questo driver ha 4 input da 12bit ogniuno, ovvero la rappresentazione binaria di ogni riga della griglia di gioco. In oltre presenta 96 pin di output posizionati a dovere in modo da potervici posizionare sopra i led, immaginando che siano saldati sopra. Internamente questo componente si limita a leggere dagli input il valore che ogni cella (ovvero ogni gruppo di 4 led) deve visulaizzare, e accendere a dovere i led. Come da specifiche in memoria ogni cella è rappresentata su 2 bit come:
+    - *00* acqua
+    - *01* nave
+    - *10* nave colpita
+
+    Per fare ciò è stato creato un circuito cosi composto:
+
+    |    | i1 | i2 |   | A | B | C | D |
+    |----|----|---|----|---|---|---|---|
+    | 0  | 0  |   | 0 | 0 | 0 | 0 |
+    | 0  | 1  |   | 1 | 1 | 1 | 1 |
+    | 1  | 0  |   | 1 | 0 | 0 | 1 |
+    | 1  | 1  |   | x | x | x | x |
+
+    - B = C = i2
+    - A = D = ( !i1 AND i1 ) OR ( i1 AND !i2 ) = i1 XOR i2
+
+![Display cell circuit](./screenshot/display.driver.inner.cell.png)
+
+### Considerazione
+Durante la progettazione di questo display ho incontrate delle difficolta puramente strumentali. Infatti logism non mette a disposizione dei led che possono assumere piu colori, cosa che nel mio caso sarebbero seviti per rappresentare i vari stati delle navi. Dopo delle ricerche ho trovato una soluzione che prevedeva la sovrapposizione di led con colori semi trasparenti in modo da sovrappore piu colori e attraverso le possibili combinazioni formare gli svariati colori. tuttavia logism non permette la sovrapposizione di led, infatti la soluzione sopracitata prevedeva lo sfruttamento di quello che sembra essere un bug. Dovendo scartare questa opzione ho pensato di utilizzare quattro led per ogni cella come sopra descritto. A questo punto pero collegare i led alla memoria utilizzando dei fili non avrebbe reso graficamente in quanto la distanza fra le celle sarebbe stata troppa e non avrei ottenuto un "simil-diplay", motivo per cui ho creato il driver con gli input sulla parte superiore del componente, invece che sui lati come è solito fare.
+    
 
 
 
