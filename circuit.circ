@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project source="2.7.1" version="1.0">
 This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
-<lib desc="#Wiring" name="0"/>
-  <lib desc="#Gates" name="1"/>
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="appear" val="right"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1">
+    <tool name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </tool>
+    <tool name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </tool>
+  </lib>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
   <lib desc="#Memory" name="4">
@@ -22,6 +38,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
   </lib>
   <lib desc="file#libs.circ/FlipFlop.circ" name="7"/>
+  <lib desc="file#libs.circ/Register.circ" name="8"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -60,506 +77,512 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(120,50)" to="(150,50)"/>
-    <wire from="(120,150)" to="(150,150)"/>
-    <wire from="(120,100)" to="(150,100)"/>
-    <wire from="(120,200)" to="(150,200)"/>
-    <comp lib="5" loc="(420,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(220,130)" name="LED">
+    <wire from="(120,350)" to="(150,350)"/>
+    <wire from="(270,380)" to="(360,380)"/>
+    <wire from="(350,510)" to="(380,510)"/>
+    <wire from="(360,460)" to="(380,460)"/>
+    <wire from="(210,520)" to="(210,560)"/>
+    <wire from="(370,370)" to="(370,410)"/>
+    <wire from="(70,360)" to="(150,360)"/>
+    <wire from="(370,410)" to="(380,410)"/>
+    <wire from="(120,300)" to="(120,350)"/>
+    <wire from="(270,390)" to="(350,390)"/>
+    <wire from="(360,380)" to="(360,460)"/>
+    <wire from="(270,360)" to="(380,360)"/>
+    <wire from="(270,370)" to="(370,370)"/>
+    <wire from="(170,560)" to="(210,560)"/>
+    <wire from="(350,390)" to="(350,510)"/>
+    <comp lib="5" loc="(420,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(290,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(170,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(370,180)" name="LED">
+    <comp lib="5" loc="(670,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,80)" name="LED">
+    <comp lib="5" loc="(400,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,120)" name="LED">
+    <comp lib="5" loc="(520,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(650,380)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(170,130)" name="LED">
+    <comp lib="0" loc="(170,560)" name="Clock"/>
+    <comp lib="5" loc="(570,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(240,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(440,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(190,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="0" loc="(120,100)" name="Pin">
-      <a name="width" val="12"/>
+    <comp lib="0" loc="(70,360)" name="Pin">
+      <a name="width" val="2"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="5" loc="(320,120)" name="LED">
+    <comp lib="5" loc="(600,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp loc="(690,360)" name="Display Driver">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="5" loc="(600,380)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(320,180)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(240,80)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(190,120)" name="LED">
+    <comp lib="5" loc="(500,380)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(390,30)" name="LED">
+    <comp lib="5" loc="(620,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(500,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(520,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(450,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="0" loc="(120,200)" name="Pin">
-      <a name="width" val="12"/>
+    <comp lib="5" loc="(500,390)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(650,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(500,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(450,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(550,340)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(470,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(620,390)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(470,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(470,390)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(600,390)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(670,340)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(420,440)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(500,340)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(400,340)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(670,490)" name="LED">
+      <a name="facing" val="north"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="8" loc="(270,330)" name="Memory"/>
+    <comp lib="0" loc="(120,300)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="6"/>
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="5" loc="(340,180)" name="LED">
+    <comp lib="5" loc="(620,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(620,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(290,220)" name="LED">
+    <comp lib="5" loc="(570,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(420,30)" name="LED">
+    <comp lib="5" loc="(520,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(450,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,70)" name="LED">
+    <comp lib="5" loc="(670,380)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(240,130)" name="LED">
+    <comp lib="5" loc="(400,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(240,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,180)" name="LED">
+    <comp lib="5" loc="(600,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(340,30)" name="LED">
+    <comp lib="5" loc="(650,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(170,80)" name="LED">
+    <comp lib="5" loc="(570,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(520,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(600,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(620,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(520,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(420,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(620,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(240,180)" name="LED">
+    <comp lib="5" loc="(500,530)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(470,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(500,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(420,130)" name="LED">
+    <comp lib="5" loc="(550,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(190,220)" name="LED">
+    <comp lib="5" loc="(570,530)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,170)" name="LED">
+    <comp lib="5" loc="(670,430)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(390,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(190,130)" name="LED">
+    <comp lib="5" loc="(420,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(420,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(320,130)" name="LED">
+    <comp lib="5" loc="(550,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,130)" name="LED">
+    <comp lib="5" loc="(400,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(570,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,180)" name="LED">
+    <comp lib="5" loc="(600,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(190,180)" name="LED">
+    <comp lib="5" loc="(450,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(440,170)" name="LED">
+    <comp lib="5" loc="(550,530)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(190,170)" name="LED">
+    <comp lib="5" loc="(670,530)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(320,170)" name="LED">
+    <comp lib="5" loc="(550,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(420,180)" name="LED">
+    <comp lib="5" loc="(470,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(670,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(370,30)" name="LED">
+    <comp lib="5" loc="(400,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(290,170)" name="LED">
+    <comp lib="5" loc="(600,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(440,130)" name="LED">
+    <comp lib="5" loc="(500,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(550,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(420,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(520,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,220)" name="LED">
+    <comp lib="5" loc="(670,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(290,80)" name="LED">
+    <comp lib="5" loc="(470,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(270,80)" name="LED">
+    <comp lib="5" loc="(570,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(650,390)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(390,130)" name="LED">
+    <comp lib="5" loc="(620,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(170,70)" name="LED">
+    <comp lib="5" loc="(400,530)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(220,170)" name="LED">
+    <comp lib="5" loc="(450,430)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(320,80)" name="LED">
+    <comp lib="5" loc="(550,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(470,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(340,220)" name="LED">
+    <comp lib="5" loc="(650,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(190,80)" name="LED">
+    <comp lib="5" loc="(420,380)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(570,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(340,130)" name="LED">
+    <comp lib="5" loc="(520,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(190,70)" name="LED">
+    <comp lib="5" loc="(400,380)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(440,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(390,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(340,80)" name="LED">
+    <comp lib="5" loc="(650,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(390,170)" name="LED">
+    <comp lib="5" loc="(450,480)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(440,80)" name="LED">
+    <comp lib="5" loc="(650,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(170,30)" name="LED">
+    <comp lib="5" loc="(570,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(440,220)" name="LED">
+    <comp lib="5" loc="(400,430)" name="LED">
       <a name="facing" val="south"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(170,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(240,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(440,180)" name="LED">
+    <comp lib="5" loc="(420,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp loc="(460,50)" name="Display Driver">
+    <comp lib="5" loc="(450,530)" name="LED">
       <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(420,80)" name="LED">
+    <comp lib="5" loc="(450,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="0" loc="(120,150)" name="Pin">
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
+    <comp lib="5" loc="(620,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(290,30)" name="LED">
+    <comp lib="5" loc="(470,340)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(170,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(420,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,130)" name="LED">
+    <comp lib="5" loc="(520,490)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(390,180)" name="LED">
+    <comp lib="5" loc="(420,480)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(650,430)" name="LED">
+      <a name="facing" val="south"/>
+      <a name="color" val="#8b8f8b"/>
+      <a name="offcolor" val="#00c8ff"/>
+    </comp>
+    <comp lib="5" loc="(550,440)" name="LED">
       <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
-    <comp lib="5" loc="(270,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,220)" name="LED">
+    <comp lib="5" loc="(600,430)" name="LED">
       <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(220,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(340,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(290,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="0" loc="(120,50)" name="Pin">
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="5" loc="(440,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(240,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(340,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(290,180)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(420,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(320,220)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(290,130)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(390,120)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(340,170)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(170,180)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(390,80)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(240,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(270,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(320,70)" name="LED">
-      <a name="facing" val="south"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(320,30)" name="LED">
-      <a name="facing" val="north"/>
-      <a name="color" val="#8b8f8b"/>
-      <a name="offcolor" val="#00c8ff"/>
-    </comp>
-    <comp lib="5" loc="(370,80)" name="LED">
-      <a name="facing" val="north"/>
       <a name="color" val="#8b8f8b"/>
       <a name="offcolor" val="#00c8ff"/>
     </comp>
@@ -1040,89 +1063,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(510,610)" to="(1100,610)"/>
     <wire from="(890,320)" to="(900,320)"/>
     <wire from="(670,340)" to="(680,340)"/>
-    <comp lib="0" loc="(320,330)" name="Pin">
+    <comp lib="0" loc="(780,520)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(880,710)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(1120,720)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-    </comp>
-    <comp lib="6" loc="(450,284)" name="Text">
-      <a name="text" val="A"/>
-    </comp>
-    <comp lib="0" loc="(780,100)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1060,110)" name="Pin">
+    <comp lib="0" loc="(1060,130)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(1040,520)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(730,710)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(1200,100)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(470,670)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(900,320)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1200,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(320,670)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1060,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(600,510)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(580,710)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(338,365)" name="Text">
-      <a name="text" val="i1"/>
-    </comp>
-    <comp lib="0" loc="(320,100)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1060,680)" name="Pin">
+    <comp lib="0" loc="(440,700)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -1132,105 +1083,26 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="6" loc="(471,346)" name="Text">
-      <a name="text" val="D"/>
-    </comp>
-    <comp lib="1" loc="(880,520)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(730,520)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(630,140)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(320,710)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(600,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(900,680)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(780,670)" name="Pin">
+    <comp lib="0" loc="(630,290)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(1060,700)" name="Pin">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(1090,710)" name="Pin">
+      <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(420,520)" name="XOR Gate">
+    <comp lib="0" loc="(1120,720)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+    </comp>
+    <comp lib="1" loc="(730,330)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(900,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(930,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(270,520)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(290,700)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1090,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(1040,140)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(1060,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(630,710)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(780,140)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(600,680)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,710)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(900,130)" name="Pin">
+    <comp lib="0" loc="(900,700)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -1240,29 +1112,202 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(750,490)" name="Pin">
+    <comp lib="1" loc="(730,140)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(580,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(290,510)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(930,520)" name="Pin">
+    <comp lib="0" loc="(1060,490)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(630,710)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1090,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1060,510)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(630,140)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,490)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(630,520)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1200,250)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="12"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(270,140)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(780,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(320,290)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(375,365)" name="Text">
+      <a name="text" val="i2"/>
+    </comp>
+    <comp lib="0" loc="(930,710)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(320,670)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(930,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(730,710)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(470,480)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(880,140)" name="XOR Gate">
+    <comp lib="0" loc="(780,100)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(880,710)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(880,330)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(1090,290)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(900,490)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(780,480)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(470,140)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,320)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(630,670)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(600,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1060,320)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(630,100)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(1040,330)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(880,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1040,140)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(780,140)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1200,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="12"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(600,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(580,710)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(1120,530)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+    </comp>
+    <comp lib="1" loc="(730,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(1090,140)" name="Pin">
       <a name="facing" val="south"/>
@@ -1274,48 +1319,258 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="6" loc="(375,365)" name="Text">
-      <a name="text" val="i2"/>
+    <comp lib="0" loc="(320,710)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(440,680)" name="Pin">
+    <comp lib="0" loc="(320,100)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(930,480)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(420,330)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(780,670)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(338,365)" name="Text">
+      <a name="text" val="i1"/>
+    </comp>
+    <comp lib="0" loc="(930,100)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(630,480)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1060,700)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(880,330)" name="XOR Gate">
+    <comp lib="0" loc="(600,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(930,520)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1090,100)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1060,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(930,290)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,510)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(750,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(900,320)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(320,520)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(470,100)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1200,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="12"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(900,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(270,330)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(450,346)" name="Text">
+      <a name="text" val="C"/>
+    </comp>
+    <comp lib="0" loc="(1060,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(420,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(472,284)" name="Text">
+      <a name="text" val="B"/>
+    </comp>
+    <comp lib="0" loc="(320,140)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(600,700)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(270,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(1090,520)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(470,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(930,140)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(290,320)" name="Pin">
+    <comp lib="1" loc="(1040,520)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(880,140)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(470,520)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(900,300)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(1040,710)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(440,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1090,480)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(750,510)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(600,490)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(900,490)" name="Pin">
+    <comp lib="0" loc="(600,510)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(440,700)" name="Pin">
+    <comp lib="0" loc="(470,670)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(900,130)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(930,710)" name="Pin">
+    <comp lib="0" loc="(470,710)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(320,480)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1200,100)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="12"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(440,490)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,700)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1060,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(450,284)" name="Text">
+      <a name="text" val="A"/>
+    </comp>
+    <comp lib="0" loc="(600,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(780,710)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
@@ -1325,12 +1580,26 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(270,140)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(440,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(630,520)" name="Pin">
+    <comp lib="0" loc="(630,330)" name="Pin">
       <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(290,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(471,346)" name="Text">
+      <a name="text" val="D"/>
+    </comp>
+    <comp lib="0" loc="(600,320)" name="Pin">
+      <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
@@ -1338,171 +1607,64 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(1200,200)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(320,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(600,110)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(1040,330)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(780,480)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(290,680)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1090,520)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(630,670)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(780,710)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="1" loc="(580,330)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(600,700)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(750,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(780,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1120,530)" name="Splitter">
+    <comp lib="0" loc="(1120,340)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="12"/>
       <a name="incoming" val="12"/>
     </comp>
-    <comp lib="0" loc="(600,320)" name="Pin">
+    <comp lib="0" loc="(750,490)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(270,330)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(750,680)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(630,480)" name="Pin">
+    <comp lib="0" loc="(1120,150)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+    </comp>
+    <comp lib="0" loc="(470,290)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(750,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(900,700)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(730,330)" name="XOR Gate">
+    <comp lib="1" loc="(270,710)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(630,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="6" loc="(472,284)" name="Text">
-      <a name="text" val="B"/>
-    </comp>
-    <comp lib="0" loc="(290,510)" name="Pin">
+    <comp lib="0" loc="(900,110)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(1090,100)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(630,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,140)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1060,320)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,520)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(580,520)" name="XOR Gate">
+    <comp lib="1" loc="(420,140)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(290,490)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(320,140)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(290,300)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(320,520)" name="Pin">
+    <comp lib="1" loc="(1040,710)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(320,330)" name="Pin">
       <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,320)" name="Pin">
+      <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
@@ -1516,160 +1678,21 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(270,710)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(440,510)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="6" loc="(450,346)" name="Text">
-      <a name="text" val="C"/>
-    </comp>
-    <comp lib="0" loc="(1060,510)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1090,480)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,490)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1060,490)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(290,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(930,100)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(750,510)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(320,480)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,320)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(750,680)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,100)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(730,140)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(580,140)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(1200,250)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="12"/>
-      <a name="tristate" val="false"/>
-    </comp>
     <comp lib="0" loc="(780,290)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(420,330)" name="XOR Gate">
+    <comp lib="1" loc="(580,140)" name="XOR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(900,110)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(780,520)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(600,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(470,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(420,140)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(440,110)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(930,480)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1120,340)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-    </comp>
-    <comp lib="0" loc="(1090,710)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(930,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1120,150)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-    </comp>
-    <comp lib="0" loc="(1090,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(750,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(750,130)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="labelloc" val="east"/>

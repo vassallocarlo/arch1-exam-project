@@ -79,12 +79,19 @@ Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie 
 
 ![Display cell circuit](./screenshot/display.driver.inner.cell.png)
 
-### Considerazione
+#### Considerazione
 Durante la progettazione di questo display ho incontrate delle difficolta puramente strumentali. Infatti logism non mette a disposizione dei led che possono assumere piu colori, cosa che nel mio caso sarebbero seviti per rappresentare i vari stati delle navi. Dopo delle ricerche ho trovato una soluzione che prevedeva la sovrapposizione di led con colori semi trasparenti in modo da sovrappore piu colori e attraverso le possibili combinazioni formare gli svariati colori. tuttavia logism non permette la sovrapposizione di led, infatti la soluzione sopracitata prevedeva lo sfruttamento di quello che sembra essere un bug. Dovendo scartare questa opzione ho pensato di utilizzare quattro led per ogni cella come sopra descritto. A questo punto pero collegare i led alla memoria utilizzando dei fili non avrebbe reso graficamente in quanto la distanza fra le celle sarebbe stata troppa e non avrei ottenuto un "simil-diplay", motivo per cui ho creato il driver con gli input sulla parte superiore del componente, invece che sui lati come è solito fare.
     
+### Memory
+![Memory Appearance](./screenshot/memory.out.png)
+![Memory inner](./screenshot/memory.inner.png)
+Questo componente ha il compito di memorizzare i dati del gioco come le due griglie dei giocatori, il conto delle navi posizionate e rimanenti, e lo stato della partita. La struttura del circuito è molto simile ad un register file di una cpu.
+- **Griglie di gioco:** le due griglie di gioco sono memorizzate in una struttura ispirata al register file; infatti la scrittura avviene specificando l'indirizzo di registro e il suo valore e analogamente la lettura avviene specificando il registro da leggere. Per fare cio sono stati creati 64 registri da 2 bit, 1 decoder da 64 vie a 2 bit e 1 multiplexer da 64 vie a 2 bit. Il piano di indirizzamento e cosi formato: il 1° bit, più significativi, indica il giocatore, il 2° e 3° indicano la riga sulla griglia, il 4°, 5°, 6° indicano la colonna sulla griglia. Essendo 6 le righe e 3 i bit utilizzati per rappresentarle, per ogni riga rimangono 2 registri inutilizzati per un totale di 16 registi superflui che sono stati riportati nello screenshot ma che sono stati rimossi durante la fase di rifinitura finale. I dati qui memorizzati devono essere rappresentati sul display, motivo per cui sono state create delle uscite dedicate.
+- **Stato della partita:** lo stato della partita è memorizzato in un registro da 3 bit appositamente creato, esso è accessibile in scrittura e lettura attraverso un ingresso e un uscita dedicate.
+- **Conto delle navi:** Il contatore delle navi di ogni giocatore è memorizzato in 2 dedicati registri da 3 bit che sono accessibili in scrittura attraverso, un ingresso di selezione per specificare su quale giocatore agire, e un ingresso ove immettere il nuovo valore da memorizzare. Per le operazioni di lettura invece sono presenti 2 uscite dedicate per ogni contatore
 
-
-
+#### Considerazioni
+La progettazione di questo componente non è stata particolarmente difficoltosa in quanto è per la maggiorparte ispirata al registerfile, le difficolta riscontrate sono state piu che altro relative alla costruzione fisica inquanto sia per il multiplexer e il decoder, sia per il componente in se sono stati necessari una gran quantità di collegamenti che 
 
 
 
