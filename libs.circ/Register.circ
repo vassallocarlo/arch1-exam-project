@@ -3,9 +3,6 @@
 This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 <lib desc="#Wiring" name="0">
     <tool name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
       <a name="appear" val="right"/>
     </tool>
   </lib>
@@ -39,7 +36,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </lib>
   <lib desc="file#FlipFlop.circ" name="7"/>
   <lib desc="file#Selector.circ" name="8"/>
-  <main name="Register 2Bit"/>
+  <main name="Register 3Bit"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
@@ -61,7 +58,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
     <sep/>
     <tool lib="0" name="Pin">
-      <a name="facing" val="south"/>
       <a name="tristate" val="false"/>
     </tool>
     <tool lib="0" name="Pin">
@@ -106,34 +102,34 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(290,170)" to="(290,230)"/>
     <wire from="(370,160)" to="(370,220)"/>
     <wire from="(370,220)" to="(410,220)"/>
+    <comp lib="6" loc="(150,164)" name="Text">
+      <a name="text" val="IN"/>
+    </comp>
+    <comp lib="0" loc="(160,210)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(459,195)" name="Text">
+      <a name="text" val="Q"/>
+    </comp>
+    <comp lib="0" loc="(160,180)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="7" loc="(360,160)" name="FlipFlopDT"/>
+    <comp lib="6" loc="(151,239)" name="Text">
+      <a name="text" val="Clock "/>
+    </comp>
+    <comp lib="0" loc="(430,210)" name="Splitter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="7" loc="(360,230)" name="FlipFlopDT"/>
     <comp lib="0" loc="(450,210)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(160,180)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="6" loc="(151,239)" name="Text">
-      <a name="text" val="Clock "/>
-    </comp>
     <comp lib="0" loc="(190,180)" name="Splitter"/>
-    <comp lib="0" loc="(160,210)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="7" loc="(360,230)" name="FlipFlopDT"/>
-    <comp lib="0" loc="(430,210)" name="Splitter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="6" loc="(459,195)" name="Text">
-      <a name="text" val="Q"/>
-    </comp>
-    <comp lib="7" loc="(360,160)" name="FlipFlopDT"/>
-    <comp lib="6" loc="(150,164)" name="Text">
-      <a name="text" val="IN"/>
-    </comp>
   </circuit>
   <circuit name="Memory">
     <a name="circuit" val="Memory"/>
@@ -1191,457 +1187,25 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(2100,370)" to="(2100,410)"/>
     <wire from="(2380,1330)" to="(2670,1330)"/>
     <wire from="(1890,2190)" to="(2240,2190)"/>
-    <comp loc="(1900,2340)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2760,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp loc="(1900,3040)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1320)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2630,330)" name="Pin">
+    <comp loc="(1890,2590)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2130,330)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="width" val="12"/>
-      <a name="label" val="D1 2"/>
+      <a name="label" val="D2 2"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="0" loc="(2360,440)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,3920)" name="AND Gate">
+    <comp lib="1" loc="(1740,1870)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(1740,4070)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2550,410)" name="Splitter">
+    <comp lib="0" loc="(2570,420)" name="Splitter">
       <a name="facing" val="north"/>
       <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,3670)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1190)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2860,440)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2190,480)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2840,430)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,1020)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,1770)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,3320)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,1920)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2770)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1540)" name="Register 2Bit"/>
-    <comp loc="(1890,1790)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2010,390)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1040)" name="Register 2Bit"/>
-    <comp loc="(1900,3290)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2480,500)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,3890)" name="Register 2Bit"/>
-    <comp lib="6" loc="(1850,4161)" name="Text">
-      <a name="text" val="State"/>
-    </comp>
-    <comp lib="1" loc="(1740,3820)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,3170)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(1480,4290)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="B.C. Player write"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2530,400)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2920,470)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2590,430)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,1720)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2110,440)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,3520)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1990)" name="Register 2Bit"/>
-    <comp loc="(1900,3140)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2650,460)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,3390)" name="Register 2Bit"/>
-    <comp lib="0" loc="(1780,880)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="width" val="2"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Write content"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2050,410)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,3690)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2690,1630)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="width" val="6"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Register read"/>
-      <a name="labelloc" val="south"/>
-    </comp>
-    <comp lib="0" loc="(1490,4340)" name="Pin">
-      <a name="width" val="3"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Write boat count"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(1740,2220)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2630,450)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(1670,880)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Clock"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp loc="(1900,2740)" name="Register 2Bit"/>
-    <comp loc="(1890,2540)" name="Register 2Bit"/>
-    <comp loc="(1900,3840)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1120)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(2460,490)" name="Splitter">
       <a name="facing" val="north"/>
       <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2440,480)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1640)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3570)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1890,990)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2680,4340)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="3"/>
-      <a name="label" val="B.C. 2 out"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp loc="(1900,1940)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2030,400)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2630,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp lib="1" loc="(1740,2520)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1240)" name="Register 2Bit"/>
-    <comp lib="6" loc="(2696,263)" name="Text">
-      <a name="text" val="|------------------------------------------- Display out 1 ----------------------------------------------|"/>
-    </comp>
-    <comp loc="(1900,1840)" name="Register 2Bit"/>
-    <comp loc="(1900,2390)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,2920)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,2890)" name="Register 2Bit"/>
-    <comp loc="(1890,1340)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2880,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp loc="(1900,3590)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2510,390)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2280,400)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,2790)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3270)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1890)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2940,480)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,2870)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,2040)" name="Register 2Bit"/>
-    <comp loc="(1900,3090)" name="Register 2Bit"/>
-    <comp lib="0" loc="(1270,880)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="width" val="6"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="Register write"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(1740,2270)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2320,420)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,2620)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,3470)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1730,4300)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-      <a name="negate0" val="true"/>
-    </comp>
-    <comp lib="1" loc="(1740,4020)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2010,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp loc="(1900,1090)" name="Register 2Bit"/>
-    <comp loc="(1900,3940)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1220)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2800,410)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2980,500)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,1420)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,3490)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2880,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D1 0"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2150,460)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,2120)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,2490)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2760,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D1 1"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(1740,3020)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2960,490)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2780,400)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1690)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2690,480)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,2640)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1820)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,3420)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,3970)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2760,390)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,3070)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2320)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2400,460)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2610,440)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1590)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,2670)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1890,3740)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2510,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D1 3"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="6" loc="(1850,918)" name="Text">
-      <a name="text" val="Grid Memory"/>
-    </comp>
-    <comp loc="(1900,3440)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3770)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(2260,350)" name="Splitter">
       <a name="facing" val="south"/>
@@ -1660,224 +1224,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit10" val="1"/>
       <a name="bit11" val="0"/>
     </comp>
-    <comp lib="1" loc="(1740,3120)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,3990)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2210,490)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,2590)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1970)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,3190)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3370)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2420)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1890,1740)" name="Register 2Bit"/>
-    <comp loc="(1900,2440)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1520)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2380,450)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="6" loc="(1852,4321)" name="Text">
-      <a name="text" val="Boat count player 2"/>
-    </comp>
-    <comp lib="0" loc="(2380,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp loc="(1900,4180)" name="Register 3Bit"/>
-    <comp lib="8" loc="(2710,950)" name="Multiplexer 64">
-      <a name="facing" val="east"/>
-    </comp>
-    <comp lib="0" loc="(1490,4180)" name="Pin">
-      <a name="width" val="3"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="State write"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2070,420)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2680,4270)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="3"/>
-      <a name="label" val="B.C. 1 out"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(1740,1270)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,4120)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1900,1290)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1170)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2820)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2260,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D2 1"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2820,420)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,2990)" name="Register 2Bit"/>
-    <comp loc="(1900,2840)" name="Register 2Bit"/>
-    <comp loc="(1900,1440)" name="Register 2Bit"/>
-    <comp loc="(1900,4040)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3620)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2010,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D2 3"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(1740,970)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,1570)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,1370)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1890,3790)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1670)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2170)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2680,4180)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="3"/>
-      <a name="label" val="State out"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(2670,470)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,2690)" name="Register 2Bit"/>
-    <comp loc="(1900,2240)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2790,950)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="Read out"/>
-      <a name="labelloc" val="south"/>
-    </comp>
-    <comp loc="(1900,4090)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,2720)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2900,460)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2170,470)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,3540)" name="Register 2Bit"/>
-    <comp loc="(1900,2290)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2420,470)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,3340)" name="Register 2Bit"/>
-    <comp lib="8" loc="(1580,940)" name="Decoder">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="0" loc="(2510,350)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="12"/>
-      <a name="incoming" val="12"/>
-      <a name="bit0" val="11"/>
-      <a name="bit1" val="10"/>
-      <a name="bit2" val="9"/>
-      <a name="bit3" val="8"/>
-      <a name="bit4" val="7"/>
-      <a name="bit5" val="6"/>
-      <a name="bit6" val="5"/>
-      <a name="bit7" val="4"/>
-      <a name="bit8" val="3"/>
-      <a name="bit9" val="2"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="0"/>
-    </comp>
-    <comp lib="0" loc="(2300,410)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,2940)" name="Register 2Bit"/>
-    <comp loc="(1900,3240)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2130,450)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,2190)" name="Register 2Bit"/>
-    <comp loc="(1900,3640)" name="Register 2Bit"/>
-    <comp lib="0" loc="(2130,330)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="12"/>
-      <a name="label" val="D2 2"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp loc="(1900,4340)" name="Register 3Bit"/>
+    <comp loc="(1890,2140)" name="Register 2Bit"/>
+    <comp loc="(1900,1840)" name="Register 2Bit"/>
+    <comp loc="(1890,3390)" name="Register 2Bit"/>
+    <comp loc="(1900,3140)" name="Register 2Bit"/>
     <comp lib="0" loc="(2130,350)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="fanout" val="12"/>
@@ -1895,86 +1245,280 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit10" val="1"/>
       <a name="bit11" val="0"/>
     </comp>
-    <comp lib="1" loc="(1740,1070)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2260,390)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1890,940)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,2070)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2710,490)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2880,450)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="0" loc="(2090,430)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp lib="1" loc="(1740,3220)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(1890,2140)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1870)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(1740,2970)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2570,420)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1140)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,1470)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2230,500)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
-    <comp loc="(1900,1490)" name="Register 2Bit"/>
-    <comp lib="1" loc="(1740,3720)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(2197,264)" name="Text">
-      <a name="text" val="|------------------------------------------- Display out 2 ----------------------------------------------|"/>
-    </comp>
-    <comp lib="1" loc="(1730,4370)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(2340,430)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-    </comp>
     <comp lib="1" loc="(1740,2370)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="6" loc="(1852,4251)" name="Text">
-      <a name="text" val="Boat count player 1"/>
+    <comp lib="1" loc="(1740,1070)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,4180)" name="Register 3Bit"/>
+    <comp loc="(1900,2490)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2880,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D1 0"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp loc="(1900,1690)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2300,410)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1890,3790)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3920)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1120)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2240)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,2220)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2510,390)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2170,470)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2510,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D1 3"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2210,490)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,2440)" name="Register 2Bit"/>
+    <comp loc="(1900,2840)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3470)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1420)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,2920)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2150,460)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,3070)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1730,4300)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+      <a name="negate0" val="true"/>
+    </comp>
+    <comp lib="1" loc="(1740,1970)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,3820)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,3640)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3970)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2690,480)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
     </comp>
     <comp lib="1" loc="(1740,2570)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp loc="(1900,4270)" name="Register 3Bit"/>
+    <comp lib="0" loc="(2840,430)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2940,480)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,2520)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,2670)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2800,410)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2790,950)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="Read out"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp loc="(1900,2890)" name="Register 2Bit"/>
+    <comp loc="(1900,3290)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2480,500)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,1220)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1020)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,1040)" name="Register 2Bit"/>
+    <comp loc="(1890,2190)" name="Register 2Bit"/>
+    <comp loc="(1900,1090)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3570)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2680,4180)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="3"/>
+      <a name="label" val="State out"/>
+      <a name="labelloc" val="north"/>
+    </comp>
     <comp lib="1" loc="(1740,3870)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2010,390)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="8" loc="(1580,940)" name="Decoder">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(2110,440)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,970)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,3270)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2690,1630)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="width" val="6"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Register read"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(2880,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp lib="0" loc="(1480,4290)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B.C. Player write"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(1670,880)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clock"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="1" loc="(1740,2270)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2780,400)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,2470)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,3840)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,2770)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1890,940)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,1320)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2440,480)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2650,460)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,2620)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(1850,918)" name="Text">
+      <a name="text" val="Grid Memory"/>
+    </comp>
+    <comp lib="0" loc="(1780,880)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Write content"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp loc="(1900,3090)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2680,4340)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="3"/>
+      <a name="label" val="B.C. 2 out"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2670,470)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,2790)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,1570)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
@@ -1982,12 +1526,41 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(2730,500)" name="Splitter">
+    <comp loc="(1890,1340)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,1370)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2690)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2680,4270)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="3"/>
+      <a name="label" val="B.C. 1 out"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2760,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D1 1"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="1" loc="(1740,2870)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2960,490)" name="Splitter">
       <a name="facing" val="north"/>
       <a name="appear" val="right"/>
     </comp>
-    <comp loc="(1900,2090)" name="Register 2Bit"/>
-    <comp loc="(1890,1390)" name="Register 2Bit"/>
+    <comp lib="6" loc="(2696,263)" name="Text">
+      <a name="text" val="|------------------------------------------- Display out 1 ----------------------------------------------|"/>
+    </comp>
+    <comp lib="1" loc="(1740,1170)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="0" loc="(2380,330)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
@@ -1995,14 +1568,437 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="D2 0"/>
       <a name="labelloc" val="north"/>
     </comp>
+    <comp loc="(1900,1940)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2340,430)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,2970)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,3940)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2070,420)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1890,3340)" name="Register 2Bit"/>
+    <comp lib="0" loc="(1270,880)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="6"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Register write"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp loc="(1900,3190)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,2720)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2130,450)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2090,430)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,3990)" name="Register 2Bit"/>
+    <comp lib="6" loc="(2197,264)" name="Text">
+      <a name="text" val="|------------------------------------------- Display out 2 ----------------------------------------------|"/>
+    </comp>
+    <comp loc="(1900,3540)" name="Register 2Bit"/>
+    <comp loc="(1900,3040)" name="Register 2Bit"/>
+    <comp loc="(1900,1990)" name="Register 2Bit"/>
+    <comp loc="(1900,1140)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3220)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1890,2940)" name="Register 2Bit"/>
+    <comp loc="(1900,2340)" name="Register 2Bit"/>
+    <comp loc="(1900,2290)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,2820)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,3170)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2740)" name="Register 2Bit"/>
+    <comp loc="(1900,1590)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2590,430)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,3120)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,2320)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,4120)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2630,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp loc="(1900,1290)" name="Register 2Bit"/>
+    <comp loc="(1900,2640)" name="Register 2Bit"/>
+    <comp lib="8" loc="(2710,950)" name="Multiplexer 64">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="1" loc="(1740,3420)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2710,490)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,4090)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3320)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1670)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1270)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1720)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,3670)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,2170)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2610,440)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2380,450)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2260,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D2 1"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="1" loc="(1740,3770)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2030,400)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1240)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2050,410)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="6" loc="(1852,4251)" name="Text">
+      <a name="text" val="Boat count player 1"/>
+    </comp>
+    <comp lib="1" loc="(1740,1770)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,2120)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2040)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,2420)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2360,440)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2550,410)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2760,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp lib="1" loc="(1740,3720)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1890,1740)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2980,500)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1890,2540)" name="Register 2Bit"/>
+    <comp lib="6" loc="(1850,4161)" name="Text">
+      <a name="text" val="State"/>
+    </comp>
+    <comp lib="0" loc="(2320,420)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
     <comp lib="1" loc="(1740,2020)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(1740,2470)" name="AND Gate">
+    <comp lib="1" loc="(1740,3020)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
+    <comp loc="(1900,4040)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2010,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D2 3"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2190,480)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="6" loc="(1852,4321)" name="Text">
+      <a name="text" val="Boat count player 2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1520)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2090)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2630,330)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="12"/>
+      <a name="label" val="D1 2"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(1490,4340)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Write boat count"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2730,500)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1490)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2380,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp lib="0" loc="(2860,440)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1640)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2420,470)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,3620)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(1490,4180)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="State write"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(2880,450)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2230,500)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,3240)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2760,390)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1890,1790)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2920,470)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1440)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1730,4370)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2630,450)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="1" loc="(1740,2070)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,4270)" name="Register 3Bit"/>
+    <comp loc="(1900,3890)" name="Register 2Bit"/>
+    <comp loc="(1900,4340)" name="Register 3Bit"/>
+    <comp lib="1" loc="(1740,4070)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1470)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,4020)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1820)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,3520)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(1740,1920)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(1900,2390)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2530,400)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2010,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp loc="(1890,3740)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2820,420)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,3690)" name="Register 2Bit"/>
+    <comp loc="(1890,2990)" name="Register 2Bit"/>
+    <comp loc="(1890,990)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2510,350)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+      <a name="bit0" val="11"/>
+      <a name="bit1" val="10"/>
+      <a name="bit2" val="9"/>
+      <a name="bit3" val="8"/>
+      <a name="bit4" val="7"/>
+      <a name="bit5" val="6"/>
+      <a name="bit6" val="5"/>
+      <a name="bit7" val="4"/>
+      <a name="bit8" val="3"/>
+      <a name="bit9" val="2"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="0"/>
+    </comp>
+    <comp loc="(1900,3490)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2400,460)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(2900,460)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1890)" name="Register 2Bit"/>
+    <comp lib="1" loc="(1740,3370)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(2260,390)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1890,1390)" name="Register 2Bit"/>
+    <comp lib="0" loc="(2280,400)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp loc="(1900,1540)" name="Register 2Bit"/>
+    <comp loc="(1900,3440)" name="Register 2Bit"/>
+    <comp loc="(1900,1190)" name="Register 2Bit"/>
+    <comp loc="(1900,3590)" name="Register 2Bit"/>
   </circuit>
   <circuit name="Register 3Bit">
     <a name="circuit" val="Register 3Bit"/>
@@ -2046,18 +2042,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(360,180)" to="(360,300)"/>
     <wire from="(310,160)" to="(380,160)"/>
     <wire from="(460,160)" to="(460,280)"/>
-    <comp lib="7" loc="(440,300)" name="FlipFlopDT"/>
-    <comp lib="0" loc="(260,280)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="Clock"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(270,190)" name="Pin">
-      <a name="width" val="3"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="IN"/>
-      <a name="labelloc" val="north"/>
-    </comp>
     <comp lib="7" loc="(440,160)" name="FlipFlopDT"/>
     <comp lib="0" loc="(550,270)" name="Pin">
       <a name="facing" val="west"/>
@@ -2070,11 +2054,100 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
+    <comp lib="0" loc="(260,280)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clock"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="7" loc="(440,300)" name="FlipFlopDT"/>
+    <comp lib="0" loc="(270,190)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="IN"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="7" loc="(440,230)" name="FlipFlopDT"/>
     <comp lib="0" loc="(530,270)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="7" loc="(440,230)" name="FlipFlopDT"/>
+  </circuit>
+  <circuit name="InstantRegister 2Bit">
+    <a name="circuit" val="InstantRegister 2Bit"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="60" y="103">IN</text>
+      <path d="M93,92 Q97,102 101,92" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="30" stroke="#000000" stroke-width="2" width="100" x="49" y="91"/>
+      <polyline fill="none" points="99,114 105,121" stroke="#000000"/>
+      <text font-family="SansSerif" font-size="7" text-anchor="middle" x="134" y="104">OUT</text>
+      <polyline fill="none" points="93,121 99,114" stroke="#000000"/>
+      <text font-family="SansSerif" font-size="6" font-weight="bold" text-anchor="middle" x="100" y="107">Instant</text>
+      <circ-port height="8" pin="140,150" width="8" x="46" y="96"/>
+      <circ-port height="8" pin="130,210" width="8" x="96" y="116"/>
+      <circ-port height="10" pin="520,220" width="10" x="145" y="95"/>
+      <circ-anchor facing="east" height="6" width="6" x="147" y="97"/>
+    </appear>
+    <wire from="(290,310)" to="(350,310)"/>
+    <wire from="(450,200)" to="(450,270)"/>
+    <wire from="(310,290)" to="(310,360)"/>
+    <wire from="(300,170)" to="(300,240)"/>
+    <wire from="(460,210)" to="(460,340)"/>
+    <wire from="(290,180)" to="(290,310)"/>
+    <wire from="(410,340)" to="(460,340)"/>
+    <wire from="(300,240)" to="(350,240)"/>
+    <wire from="(130,210)" to="(310,210)"/>
+    <wire from="(380,200)" to="(380,210)"/>
+    <wire from="(380,280)" to="(380,290)"/>
+    <wire from="(380,340)" to="(380,350)"/>
+    <wire from="(380,350)" to="(380,360)"/>
+    <wire from="(190,170)" to="(300,170)"/>
+    <wire from="(310,210)" to="(310,290)"/>
+    <wire from="(410,270)" to="(450,270)"/>
+    <wire from="(190,180)" to="(290,180)"/>
+    <wire from="(140,150)" to="(170,150)"/>
+    <wire from="(190,160)" to="(350,160)"/>
+    <wire from="(450,200)" to="(480,200)"/>
+    <wire from="(500,220)" to="(520,220)"/>
+    <wire from="(460,210)" to="(480,210)"/>
+    <wire from="(410,190)" to="(480,190)"/>
+    <wire from="(310,210)" to="(380,210)"/>
+    <wire from="(310,290)" to="(380,290)"/>
+    <wire from="(310,360)" to="(380,360)"/>
+    <comp lib="0" loc="(170,150)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="7" loc="(410,240)" name="Latch-Set-Clear-Sync"/>
+    <comp lib="7" loc="(410,160)" name="Latch-Set-Clear-Sync"/>
+    <comp lib="0" loc="(500,220)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="0" loc="(140,150)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="In"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(130,210)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clock"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(520,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="3"/>
+      <a name="label" val="Out"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="7" loc="(410,310)" name="Latch-Set-Clear-Sync"/>
   </circuit>
 </project>
