@@ -8,7 +8,9 @@ Il progetto ha come obbiettivo quello di simulare, in logisim, un circuito che p
 
 Input/output:
 - **Display:** ogni giocatore potrà visualizzare lo stato delle sue navi sul proprio display che mostra la griglia di gioco di dimenzioni 4x6.
-- **Keypad:** una tastiera composta da 11 tasti, contenenti le lettere dalla 'A' alla 'D', i numeri dall '1' al '5', e un tasto 'attacca'. Ogni tasto, eccetto quello di invio, ha sopra di se un led che indica la sua selezione. Il tasto 'attacca' effettua la mossa del giocatore "tirando una bomba" nella casella del giocatore avversario selezionata attraverso gli altri tasti.
+- **7segment Display:** due display a 7 segmenti che permettono ad ogni giocatore di visualizzare il proprio numero di barche rimanenti.
+- **Keypad:** una tastiera composta da 11 tasti, contenenti le lettere dalla 'A' alla 'D', i numeri dall '1' al '5', e un tasto 'attacca'. Il tasto 'attacca' effettua la mossa del giocatore "tirando una bomba" nella casella del giocatore avversario selezionata attraverso gli altri tasti.
+- **New Game Button:** un bottone che permette di iniziare una nuava partita.
 - **Led di stato:**: al lato di ogni display è posto, uno che indica lo stato del gioco:
     
     - *led blu:* se siamo nella fase di preparazione al gioco e il giocatore sta posizionando le proprie navi
@@ -18,7 +20,7 @@ Input/output:
 Ciclo di gioco:
 1. **Preparazione al gioco:** in questo stato i giocatori posizioneranno le navi a disposizione (per un totale di 6 caselle riempite) selezionando la posizione di destinazione e premendo invio per ogni singola casella da occupare. Questo stato termina automaticamente quando ogni giocatore ha finito il posizionamento.
 2. **Turno giocatore:** è il turno del primo giocatore. Quest'ultimo deve selezionare la casella da colpire attraverso il keypad e cliccare 'attacca'. L'attacco avra effetto sulla griglia dell'avversario che potrà visulaizzare sul proprio display se è stato colpito o meno. Al click del bottone 'attacca' il turno vinene automaticamente passato all'avversario. Questo stato termina quando uno dei due giocatori vince.
-3. **Fine del gioco:** uno dei giocatori ha vinto e la partita è terminata.
+3. **Fine del gioco:** uno dei giocatori ha vinto e la partita viene automaticamente resettata.
 
 Memorizzazione:
 - **Griglie dei giocatori:** ogniuna delle due griglie è salvata in una memoria indirizzabile composta da 48 celle da 2 bit ciascuna. Gli indirizzi sono da 6bit di cui:
@@ -42,15 +44,17 @@ Ogni componente di questo progetto, fatta eccezzione per le porte logiche e i le
 
 Componenti base:
 - **Flip-Flop D**
-- **Selettore** da 2 vie da 6 bit
-- **Selettore** da 64 vie da 2 bit
+- **Decoder** a 6 bit
+- **Multiplexer** da 64 vie da 2 bit
 
 Componenti:
-- **Keypad** (x2)
 - **Display** (x2)
 - **Memoria** (x1)
-- **Unita centrale** (x1)
-- **Controllore di stato** (x2)
+- **Keypad** (x2)
+- **StateManager** (x1)
+- **ShipCountManager** (x1)
+- **AttackProcessor** (x1)
+- **AttackKeeper** (x1)
 
 Principio di progettazine:
 
@@ -151,9 +155,9 @@ Lo sviluppo di questo componente, una volda definito il principio di progettazio
 Lo ShipCountManager è admibito alla gestione del contatore delle navi di ogni giocatore. Il suo compito è quello di incrementare o sottrarre al corretto contatore in base alla fase di gioco. 
 Per lo scopo è stato realizzato un sommatore a 4 bit. Il concetto di base è quello di sommare zero in stato di attesa mentre sommare +1 o -1 in base alla situazione; per fare cio, essendo  i contatori a 3 bit e dovendovi sommarci un valore negativo, internamente espandiamo il valore a 4 bit in modo da poter utilizzare il -1 (1111) in complento a 2.
 Il circuito è diviso in 2 parti:
-- *Selezione dell'operazione* (blu) che seleziona +1 in stato di preparazione alla partita e -1 in stato di gioco, in modo tale da incrementare il contatore ogni volta che un giocatore posiziona una nave e decrementarlo ogni volta che una nave viene affondata 
+- *Selezione dell'operazione* (blu) che seleziona +1 in stato di preparazione alla partita e -1 in stato di gioco, in modo tale da incrementare il contatore ogni volta che un giocatore posiziona una nave e decrementarlo ogni volta che una nave viene affondata. 
+Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza. In supplemento a quanto detto vi è un circuito (riportato in giallo) che gestisce la situazione in cui un giocatore attacchi i posizioni una nave in una cella ove vi è gia il valore di stato prossimo. Per fare cio, sono stati messi in or il valore corrente e il valore prossimo il cui risultato in and con la selezione dell'operazione porta a 0 loutput di questo sottocircuito in modo tale da non modificare il contatore.
 - *Selezione del contatore:* (rosso) che in base allo stato della partita e al giocatore corrente seleziona l'appropriato contatore, overro il medesimo del giocatore se siamo nella fase di preparazione, o il contatore opposto al giocatore che detiene il turno se siamo in fase di partita.
-Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza
 
 Selezione dell'operazione
 
@@ -172,18 +176,25 @@ Selezione dell'operazione
      = s1 AND (o1 XOR o0)
 
 Selezione del constatore
+
 Mettendo in XOR i primi 2 bit dello stato otteniamo il giocatore su cui agire, questa informazione viene utilizzita per selezionare uno dei due input riguardanti i contatori attraverso lo stesso meccanismo del multiplexer.
 
-### ShipCountManager
+### AttackKeeper
 ![AttackKeeper Appearance](./screenshot/attack.keeper.outer.png)
 ![AttackKeeper inner](./screenshot/attack.keeper.inner.png)
 
-Questo componente ha lo scopo di selezionare la cella di memoria su cui scrivere il valore dato in output dall'AttackProcessor.
-Attraverso lo stesso meccanismo del multiplexer selezioniamo l'input della mossa del giocatore corrente e la portiamo sugli ultimi 5 bit in output.
-Analogamente allo ShipCountManager utilizziamo una XOR fra turno e stato di gioco per ottenere il giocatore su cui attuare la mossa, valore che portiamo in output sulbit piu sognificativo.
-cosi facendo otteniamo l'indirizzo di memoria corrispondente alla cella della griglia da attaccare.
+Questo è un semplice componente che in base allo stato del gioco seleziona opportunamente l'attacco da eseguire; esso riceve in input i due output delle keypad e fornisce in output quello corrispondente al giocatore che detiene il turno appendendovici in prima posizione il bit che rappresenta la griglia su cui agire, ovvero quella del giocatore corrente se siamo in stato di preparazione oppure quella dell'avversario se sivamo in stato di gioco. Il circuito seleziona l'input attraverso il medesimo meccanismo di un comune multiplexer, mentre calcola il bit del giocatore attraverso un XOR fra stato di gioco e turno. (2° e 3° bit di stato). 
 
 
+### Keypad
+![keypad Appearance](./screenshot/keypad.outer.png)
+![keypad inner](./screenshot/keypad.inner.png)
+
+Il keypad è adibito alla selezione dell'attacco e alla modifica di stato in stato di attacco; è composto da 2 registri e un flipflop.
+I due registri memorizzano la selezione delle cordinate ove attaccare. Ogni input viene opputunamente trasformato in un valore e poi collegato mediante delle porte or alla porta IN del registro nonchè direttante collegato al clock del registro in modo da salvari il valore. Cosi facendo all' 1°input corrispondente al tasto 'A' corrdisponderà il valore 00 e cosi via. l'ultimo input è l'input di attacco, esso si limita a salvare che la mossa è stata lanciata. ogni una di queste memorie è collegata all'input di rest in modo tale che quando il turno vinene passato oppure viene avviata una nuova partita le memorie possano essere resettate. i 3 valori delle memorie sono unite cosi come definito nelle specifiche e portati in output.
+
+#### Considerazioni
+Per quanto riguarda l'aspetetto esteriore del componente, ho optato per una singola linea ansiche un rettangolo in quanto distrae meno dalla tastiera. inizialmente avevo deciso di posizionare i pin di output sopra il componente cosi come fatto per il display driver, tuttavia i tasti non risultavono tutti cliccabili sovrapponendoli al componente. La scelta di salvare il click del tasto attacca invece che collegarlo direttamente all'output deriva dal fatto che i componenti che necessitano di tale informazione non riuscivano a regire al cambio di valore in tempo tale da scrivere in memoria, problema accentuato dall'asincronia rispetto al clock.
 
 
 
