@@ -111,18 +111,18 @@ Memorizzazione:
 In oltre la memoria ha un input di reset, che setta a 0 ogni registro in modo da poter iniziare una nuova partita.
 
 #### Considerazioni
-La progettazione di questo componente non è stata particolarmente difficoltosa in quanto è per la maggiorparte ispirata al registerfile, le difficolta riscontrate sono state piu che altro relative alla costruzione fisica inquanto sia per il multiplexer e il decoder, sia per il componente in se è stato necessario collegare molti fili, operazione delicata che spesso ha portato a degli errori involtari e di conseguenza ad una fase di "debugging". Ho deciso di utilizzare un piano di indirizzamento "bucato" perche evitarlo mi avrebbe costretto a sviluppare un circuito per la traduzione degli indirizzi o qunatomeno avrebbe reso molto piu complicato il circito all'interno del keypad.Un problema che ho dovuto affrontare è stato quello relativo alla gestione di logisim dei latch-set-clear, infatti logism non supporta a pieno circuiti di quel tipo che inizialmente risultano essere un uno stato di errore e che spesso causano un errore del sistema detto 'Oscilation'. Per ovviare a questo problema ho collegato ogni memoria a un bottone in modo tale da essere sicuro che ogni valore contenuto nei registri sia inizializzato a inizio partita. Il problema dell'oscillazione invece mi mette in difficoltà in quanto apparenteente non rispetta alcun tipo di schema e sembra essere causato da una sorta di crash interno a logisim.
+La progettazione di questo componente non è stata particolarmente difficoltosa in quanto è per la maggiorparte ispirata al registerfile, le difficolta riscontrate sono state piu che altro relative alla costruzione fisica inquanto sia per il multiplexer e il decoder, sia per il componente in se è stato necessario collegare molti fili, operazione delicata che spesso ha portato a degli errori involtari e di conseguenza ad una fase di "debugging". Ho deciso di utilizzare un piano di indirizzamento "bucato" perche evitarlo mi avrebbe costretto a sviluppare un circuito per la traduzione degli indirizzi o qunatomeno avrebbe reso molto piu complicato il circito all'interno del keypad.Un problema che ho dovuto affrontare è stato quello relativo alla gestione di logisim dei latch-set-clear, infatti logism non supporta a pieno circuiti di quel tipo che inizialmente risultano essere un uno stato di errore e che spesso causano un errore del sistema detto 'Oscilation'. Per ovviare a questo problema ho collegato ogni memoria a un bottone in modo tale da essere sicuro che ogni valore contenuto nei registri sia inizializzato a inizio partita, soluzione non sufficente in quanto l'oscillazione continuava a presentarsi in modo apparentemente casuale. Dopo le dovute indagini ho capito che il problema era in parte causata dal collegamento logico del clock con i segnali di reset. Non riuscendo, tuttavia, a isolare in modo specifico la causa esatta del problema ho dovuto cercare per esaustione la combinazione che meglio gestiva il problema, ovvero quella riportata nel curcuito.
 
 ### AttackProcessor
 ![AttackProcessor Appearance](./screenshot/attack.processor.outer.png)
 ![AttackProcessor inner](./screenshot/attack.processor.inner.png)
 
-Questo componente è adibito al processing dell attacco. Come da principio durante gli stati di attesa loutput equivarrà a l'input. Durante la fase di attacco questo componente distingue due casi:
+Questo componente è adibito al processing dell attacco. Come da principio durante gli stati di attesa l output equivarrà a l'input. Durante la fase di attacco questo componente distingue due casi:
 - *Stato di preparazione:* in questo stato (1° bit di stato a 0) l'AttackProcessor fornirà in output 01 (valore che rappresenta una sezione di nave) se il valore in input è 00 (valore che rappresenta l'acqua) in modo da permettere il posizionamento delle navi.
 - *Stato di gioco:* in questo stato (1° di stato a 1) l'AttackProcessor fornirà in output il valore 10 (valore che rappresenta una sezione di nave affondata) se il valore in input è 01 (sezione di nave) in modo da permettere l'affondamento delle navi.
 
 | i1 | i0 | s2 | s1 |   | o1 | o0 |
-------|
+-----|----|----|----|---|----|----|
 | 0  | 0  | 0  | 0  |   | 0  | 0  |
 | 0  | 0  | 0  | 1  |   | 0  | 1  |
 | 0  | 0  | 1  | 0  |   | 0  | 0  |
@@ -142,57 +142,55 @@ Questo componente è adibito al processing dell attacco. Come da principio duran
 
 
 |    | 00 | 01 | 11 | 00 |
----- |
+-----|----|----|----|----|
 | 00 | 0  | 0  | 0  | 0  |
 | 01 | 0  | 0  | *1*  | 0  |
 | 11 | x  | x  | x  | x  |
-| 01 | *1*  | *1*  | *1*  | *1*  |
+| 10 | *1*  | *1*  | *1*  | *1*  |
 
-- o1 = (i0 AND s2 AND s0) OR (i1 AND i0)
+- o1 = (i0 AND s2 AND s0) OR (i1 AND !i0)
 
-|    | 00 | 01 | 11 | 00 |
----- |
+|    | 00 | 01 | 11 | 10 |
+-----|----|----|----|----|
 | 00 | 0  | *1*  | 0  | 0  |
 | 01 | *1*  | *1*  | 0  | *1*  |
 | 11 | x  | x  | x  | x  |
-| 01 | 0  | 0  | 0  | 0  |
+| 10 | 0  | 0  | 0  | 0  |
 
 - o0 = (!i1 AND !s2 AND s0) OR (!i1 AND i0 AND !s0) =    
-    = !i0 AND ( ( !s2 AND s0 ) OR ( i0 AND !s0 ) )
+    = !i1 AND ( ( !s2 AND s0 ) OR ( i0 AND !s0 ) )
 
 #### Considerazioni
-Lo sviluppo di questo componente, una volda definito il principio di progettazione e quindi il comportamento dell'AttackProcessor è stato banale.
+Lo sviluppo di questo componente, una volta definito il principio di progettazione e quindi il comportamento dell'AttackProcessor, si è ridotto a una semplice tabella di verità.
 
 ### ShipCountManager
 ![ShipCountManager Appearance](./screenshot/ship.count.manager.outer.png)
 ![ShipCountManager inner](./screenshot/ship.count.manager.inner.png)
 
-Lo ShipCountManager è admibito alla gestione del contatore delle navi di ogni giocatore. Il suo compito è quello di incrementare o sottrarre al corretto contatore in base alla fase di gioco. 
+Lo ShipCountManager è adibito alla gestione del contatore delle navi di ogni giocatore. Il suo compito è quello di incrementare o decrementare il corretto contatore in base alla fase di gioco. 
 Per lo scopo è stato realizzato un sommatore a 4 bit. Il concetto di base è quello di sommare zero in stato di attesa mentre sommare +1 o -1 in base alla situazione; per fare cio, essendo  i contatori a 3 bit e dovendovi sommarci un valore negativo, internamente espandiamo il valore a 4 bit in modo da poter utilizzare il -1 (1111) in complento a 2.
 Il circuito è diviso in 2 parti:
 - *Selezione dell'operazione* (blu) che seleziona +1 in stato di preparazione alla partita e -1 in stato di gioco, in modo tale da incrementare il contatore ogni volta che un giocatore posiziona una nave e decrementarlo ogni volta che una nave viene affondata. 
-Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza. In supplemento a quanto detto vi è un circuito (riportato in giallo) che gestisce la situazione in cui un giocatore attacchi i posizioni una nave in una cella ove vi è gia il valore di stato prossimo. Per fare cio, sono stati messi in or il valore corrente e il valore prossimo il cui risultato in and con la selezione dell'operazione porta a 0 loutput di questo sottocircuito in modo tale da non modificare il contatore.
+Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza. In supplemento a quanto detto vi è un circuito (riportato in giallo) che gestisce la situazione in cui un giocatore attacchi o posizioni una nave in una cella ove vi è gia una nave affondata o una nave propria nave posizionata. Per fare cio, sono stati messi in XOR il valore corrente e il valore prossimo, il risultato in AND con la selezione dell'operazione, nei casi sopra citati, porta a 0 l output in modo tale da sommare 0 e non modificare il contatore.
 - *Selezione del contatore:* (rosso) che in base allo stato della partita e al giocatore corrente seleziona l'appropriato contatore, overro il medesimo del giocatore se siamo nella fase di preparazione, o il contatore opposto al giocatore che detiene il turno se siamo in fase di partita.
 
-Selezione dell'operazione
+Selezione dell'operazione:
 
-| s2 | s1 | o1 | o0 |   | A3 | A2 | A1 | A0 |    |
----------|
+| s2 | s0 | o1 | o0 |   | A3 | A2 | A1 | A0 |    |
+-----|----|----|----|---|----|----|----|----|----|
 | 0  | 1  | 0  | 1  |   | 0  | 0  | 0  | 1  | +1 |
 | 1  | 1  | 1  | 0  |   | 1  | 1  | 1  | 1  | -1 |
 
-- A3 = A2 = A1 = s1 AND s2 AND o1 AND !o0
-- A0 = (!s2 AND s1 AND !O1 AND o1) OR (s2 AND s1 AND o1 AND o0) =
+- A3 = A2 = A1 = s0 AND s2 AND o1 AND !o0
+- A0 = (!s2 AND s0 AND !o1 AND o0) OR (s2 AND s0 AND o1 AND o0) =
 
-     = s1((!s2 AND !O1 AND o1) OR (s2 AND o1 AND o0))
+     = s0 ((!s2 AND !o1 AND o0) OR (s2 AND o1 AND o0))
 
-     = s1 AND (o1 XOR o0) AND (!S2 + S2)
+     = s0 AND ((s2 AND o1) XOR o0)
 
-     = s1 AND (o1 XOR o0)
+Selezione del constatore:
 
-Selezione del constatore
-
-Mettendo in XOR i primi 2 bit dello stato otteniamo il giocatore su cui agire, questa informazione viene utilizzita per selezionare uno dei due input riguardanti i contatori attraverso lo stesso meccanismo del multiplexer.
+Mettendo in XOR i primi 2 bit dello stato otteniamo il giocatore su cui agire, questa informazione viene utilizzita per selezionare contatori attraverso lo stesso meccanismo del multiplexer.
 
 ### AttackKeeper
 ![AttackKeeper Appearance](./screenshot/attack.keeper.outer.png)
@@ -206,7 +204,7 @@ Questo è un semplice componente che in base allo stato del gioco seleziona oppo
 ![keypad inner](./screenshot/keypad.inner.png)
 
 Il keypad è adibito alla selezione dell'attacco e alla modifica di stato in stato di attacco; è composto da 2 registri e un flipflop.
-I due registri memorizzano la selezione delle cordinate ove attaccare. Ogni input viene opputunamente trasformato in un valore e poi collegato mediante delle porte or alla porta IN del registro nonchè direttante collegato al clock del registro in modo da salvari il valore. Cosi facendo all' 1°input corrispondente al tasto 'A' corrdisponderà il valore 00 e cosi via. l'ultimo input è l'input di attacco, esso si limita a salvare che la mossa è stata lanciata. ogni una di queste memorie è collegata all'input di rest in modo tale che quando il turno vinene passato oppure viene avviata una nuova partita le memorie possano essere resettate. i 3 valori delle memorie sono unite cosi come definito nelle specifiche e portati in output.
+I due registri memorizzano la selezione delle cordinate ove attaccare. Ogni bottone, mediante un opportuno circuito, salva nel registro il valore ad esso corrispondente. Cosi facendo all' 1°input corrispondente al tasto 'A' corrdisponderà il valore 00 e cosi via. L'ultimo input è adibito al submit dell'attacco, esso si limita a salvare che la mossa è stata lanciata. Ciuascuna delle memorie è collegata al segnale di reset in modo tale che al passaggio di turno oppure all'avvio di una nuova partita le memorie vengano azzerate. I 3 valori delle memorie sono unite cosi come definito nelle specifiche e portati in output.
 
 #### Considerazioni
 Per quanto riguarda l'aspetetto esteriore del componente, ho optato per una singola linea ansiche un rettangolo in quanto distrae meno dalla tastiera. inizialmente avevo deciso di posizionare i pin di output sopra il componente cosi come fatto per il display driver, tuttavia i tasti non risultavono tutti cliccabili sovrapponendoli al componente. La scelta di salvare il click del tasto attacca invece che collegarlo direttamente all'output deriva dal fatto che i componenti che necessitano di tale informazione non riuscivano a regire al cambio di valore in tempo tale da scrivere in memoria, problema accentuato dall'asincronia rispetto al clock.
@@ -217,33 +215,34 @@ Per quanto riguarda l'aspetetto esteriore del componente, ho optato per una sing
 ![StateManager inner](./screenshot/state.manager.inner.png)
 
 Questo componente ha il compito di aggiornare adeguatamnte lo stato. Per farlo tiene conto di 5 variabili. lo stato corrente del gioco, i due contatori correnti, e i due valori di attacco dei due giocatori.
-- *Calcolo dello stato di attacco (giallo):* Seleziona il flag di attacco dell giocatore corrente e lo nega se se il giocatore aveva gia attaccato, quindi è il secondo colpo di clock o lo porta diretttamente in uscita se non non ha ancora attaccato.
+- *Calcolo dello stato di attacco (giallo):* Seleziona il flag di attacco dell giocatore corrente e lo nega se se il giocatore aveva gia attaccato.
 - *Calcolo del turno e dello stato di gioco:* Questo sotto-circuito calcola il turno del giocatore, tenendo conto dello stato del gioco, e lo stato del gioco, che muta in base allo stato dei contatori.
-   | cf | s2 | s1 | s0 |    | s1 |   |
-   ------|
-   | 0  | 0  | 0  | 1  |    | 0  | 
-   | 0  | 0  | 0  | 1  |    | 0  | 
-   | 0  | 0  | 1  | 0  |    | 1  | 
-   | 0  | 0  | 1  | 1  |    | 1  | 
-   | 0  | 1  | 0  | 0  |    | 0  | 
-   | 0  | 1  | 0  | 1  |    | 1  | 
-   | 0  | 1  | 1  | 0  |    | 1  | 
-   | 0  | 1  | 1  | 1  |    | 0  | 
-   | 1  | 0  | 0  | 0  |    | 1  | 
-   | 1  | 0  | 0  | 1  |    | 1  |
-   | 1  | 0  | 1  | 0  |    | 0  | 
-   | 1  | 0  | 1  | 1  |    | 0  | 
-   | 1  | 1  | 0  | 0  |    | 0  | 
-   | 1  | 1  | 0  | 1  |    | 1  | 
-   | 1  | 1  | 1  | 0  |    | 1  | 
-   | 1  | 1  | 1  | 1  |    | 0  |
 
-   |    |    | 00 | 01 | 11 | 10 | |
-   ------|-|
-   | 00 |    | 0  | 0  | *1*  | *1*  |
-   | 01 |    | 0  | *1*  | 0  | *1*  |
-   | 11 |    | 0  | *1*  | 0  | *1*  |
-   | 10 |    | *1*  | *1*  | 0  | 0  |
+| cf | s2 | s1 | s0 |    | s1 |
+|----|----|----|----|----|----|
+| 0  | 0  | 0  | 1  |    | 0  | 
+| 0  | 0  | 0  | 1  |    | 0  | 
+| 0  | 0  | 1  | 0  |    | 1  | 
+| 0  | 0  | 1  | 1  |    | 1  | 
+| 0  | 1  | 0  | 0  |    | 0  | 
+| 0  | 1  | 0  | 1  |    | 1  | 
+| 0  | 1  | 1  | 0  |    | 1  | 
+| 0  | 1  | 1  | 1  |    | 0  | 
+| 1  | 0  | 0  | 0  |    | 1  | 
+| 1  | 0  | 0  | 1  |    | 1  |
+| 1  | 0  | 1  | 0  |    | 0  | 
+| 1  | 0  | 1  | 1  |    | 0  | 
+| 1  | 1  | 0  | 0  |    | 0  | 
+| 1  | 1  | 0  | 1  |    | 1  | 
+| 1  | 1  | 1  | 0  |    | 1  | 
+| 1  | 1  | 1  | 1  |    | 0  |
+
+|    |    | 00 | 01 | 11 | 10 |
+|----|----|----|----|----|----|
+| 00 |    | 0  | 0  | *1*  | *1*  |
+| 01 |    | 0  | *1*  | 0  | *1*  |
+| 11 |    | 0  | *1*  | 0  | *1*  |
+| 10 |    | *1*  | *1*  | 0  | 0  |
 
    s1 = (!cf AND !s2 AND s1) OR (s2 AND s1 AND !s0) OR (s2 AND !s1 AND s0) OR (cf AND !s2 AND !s1) = 
 
@@ -252,6 +251,8 @@ Questo componente ha il compito di aggiornare adeguatamnte lo stato. Per farlo t
       =  !s2(cf XOR s1) OR s2(s1 XOR s0)
 
    s2 = (cf21 AND cf2) OR s2
+
+   Il primo bit di stato deve essere a 1 solo se siamo gia in stato di partita oppure se i due contatori sono stati incrementati fino a 4.
 
 - *Controllo fine gioco (blu):* controlla se i due contatori sono a 0 e se lo stato di gioco è in partita. se queste condizioni si verificano allora l'output 'new game' sarà a 1 e resttera il gioco analogamente al bottone new game.
 
@@ -269,5 +270,5 @@ Vi è un bottone comune hai due giocatori che una volta premuto resetta il valor
 
 
 ## Possibili sviluppi futuri
-Un possibile scenario per una versione 2.0 è quello di implementare un giocatore virtuale. Una possibile strategia sarebbe quella di creare un circuito che generi casualmente una selezione e che metta a 1 il flag d attacco proprio solo quando il valore corrispondente alla selezione generata sia una valore accettabile. Questo potrebbe essere implementato senza troppe difficolta in quanto la selezione è diretta alla memoria, quindi una volta generato una selezione casule il valore corrispondente sarebbe subito disponibile sulla porta di lettura della memoria.
+Un possibile scenario per una versione 2.0 è quello di implementare un giocatore virtuale. Una possibile strategia sarebbe quella di creare un circuito che generi casualmente una selezione e che metta a 1 il flag di attacco solo quando il valore corrispondente alla selezione generata sia una valore accettabile. Questo potrebbe essere implementato senza troppe difficolta in quanto la selezione è diretta alla memoria, quindi una volta generato una selezione casule il valore corrispondente sarebbe subito disponibile sulla porta di lettura della memoria.
 
