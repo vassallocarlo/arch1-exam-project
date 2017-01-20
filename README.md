@@ -54,7 +54,7 @@ Componenti:
 
 
 ### Display
-![Display Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/display.outer.png)
+![Display Appearance](https://guides.github.com/activities/hello-world/create-new-repo.png)
 ![Display inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/display.driver.inner.png)
 Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie navi ed è composto da:
 - **96 led:** in gruppi da quatto che rappresentano le celle della griglia di gioco. Ogni cella puo assumere la colorazione interamente blu, se contiene acqua, interamente grigia se contiene un segmento di nave, metà grigia e metà blu a formare una croce se rappresenta un segmento di nave che è stato colpito. Per ottenere 2 colori è stato settato come colore del led spento il colore celeste e grigio per il led acceso. La tensione su ogni led è gestita dal driver del display.
