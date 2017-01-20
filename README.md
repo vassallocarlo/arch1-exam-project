@@ -55,7 +55,7 @@ Componenti:
 
 ### Display
 ![Display Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.keeper.inner.PNG?raw=true)
-![Display inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/display.driver.inner.png)
+![Display inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/display.driver.inner.PNG?raw=true)
 Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie navi ed è composto da:
 - **96 led:** in gruppi da quatto che rappresentano le celle della griglia di gioco. Ogni cella puo assumere la colorazione interamente blu, se contiene acqua, interamente grigia se contiene un segmento di nave, metà grigia e metà blu a formare una croce se rappresenta un segmento di nave che è stato colpito. Per ottenere 2 colori è stato settato come colore del led spento il colore celeste e grigio per il led acceso. La tensione su ogni led è gestita dal driver del display.
 - **Display Driver:** questo componente, che possiamo immaginare come lo chassis del display, ha il compito di accendere a dovere ogni led in modo da rispecchiare la griglia di gioco salvata in memoria. Questo driver ha 4 input da 12bit ciascuno, ovvero la rappresentazione binaria di ogni riga della griglia di gioco. In oltre presenta 96 pin di output posizionati a dovere in modo da potervici posizionare sopra i led, immaginando che siano saldati sopra. Internamente questo componente si limita a leggere dagli input il valore di ogni cella (ovvero ogni gruppo di 4 led) e accendere a dovere i led. Come da specifiche in memoria ogni cella è rappresentata su 2 bit come:
@@ -75,7 +75,7 @@ Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie 
     - B = C = i2
     - A = D = ( !i1 AND i1 ) OR ( i1 AND !i2 ) = i1 XOR i2
 
-![Display cell circuit](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/display.driver.inner.cell.png)
+![Display cell circuit](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/display.driver.inner.cell.PNG?raw=true)
 
 #### Considerazione
 Durante la progettazione del display ho incontrate delle difficolta puramente strumentali. Infatti logism non mette a disposizione led che possano assumere più di 2 colori. Dopo delle ricerche ho trovato una soluzione che prevedeva la sovrapposizione di led semi trasparenti in modo da sovrappore più colori e attraverso le possibili combinazioni formare svariati colorazioni. Tuttavia logism non permette la sovrapposizione di led, infatti la soluzione sopracitata prevedeva lo sfruttamento di quello che sembra essere un bug. Dovendo scartare questa opzione ho pensato di utilizzare quattro led per ogni cella come sopra descritto. A questo punto collegare i led direttamente alla non avrebbe reso la sensazione di un display in quanto la distanza fra le celle sarebbe stata ampia, motivo per cui ho creato il driver con gli input sulla parte superiore del componente, invece che sui lati come è solito fare.
@@ -83,8 +83,8 @@ Durante la progettazione del display ho incontrate delle difficolta puramente st
 ---
 
 ### Memory
-![Memory Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/memory.outer.png)
-![Memory inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/memory.inner.png)
+![Memory Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/memory.outer.PNG?raw=true)
+![Memory inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/memory.inner.PNG?raw=true)
 La memoria ha il compito di memorizzare i dati del gioco, quali le due griglie dei giocatori, il numero delle navi posizionate e/o rimanenti, e lo stato della partita. La struttura del circuito è molto simile ad un register file di una cpu.
 Memorizzazione:
 - **Griglie dei giocatori:** ogniuna delle due griglie è salvata in una memoria indirizzabile composta da 48 celle da 2 bit ciascuna. Gli indirizzi sono da 6bit di cui:
@@ -114,8 +114,8 @@ In oltre la memoria ha un input di reset, che setta a 0 ogni registro in modo da
 La progettazione di questo componente non è stata particolarmente difficoltosa in quanto è per la maggiorparte ispirata al registerfile, le difficolta riscontrate sono state piu che altro relative alla costruzione fisica inquanto sia per il multiplexer e il decoder, sia per il componente in se è stato necessario collegare molti fili, operazione delicata che spesso ha portato a degli errori involtari e di conseguenza ad una fase di "debugging". Ho deciso di utilizzare un piano di indirizzamento "bucato" perche evitarlo mi avrebbe costretto a sviluppare un circuito per la traduzione degli indirizzi o qunatomeno avrebbe reso molto piu complicato il circito all'interno del keypad.Un problema che ho dovuto affrontare è stato quello relativo alla gestione di logisim dei latch-set-clear, infatti logism non supporta a pieno circuiti di quel tipo che inizialmente risultano essere un uno stato di errore e che spesso causano un errore del sistema detto 'Oscilation'. Per ovviare a questo problema ho collegato ogni memoria a un bottone in modo tale da essere sicuro che ogni valore contenuto nei registri sia inizializzato a inizio partita, soluzione non sufficente in quanto l'oscillazione continuava a presentarsi in modo apparentemente casuale. Dopo le dovute indagini ho capito che il problema era in parte causata dal collegamento logico del clock con i segnali di reset. Non riuscendo, tuttavia, a isolare in modo specifico la causa esatta del problema ho dovuto cercare per esaustione la combinazione che meglio gestiva il problema, ovvero quella riportata nel curcuito.
 
 ### AttackProcessor
-![AttackProcessor Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/attack.processor.outer.png)
-![AttackProcessor inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/attack.processor.inner.png)
+![AttackProcessor Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.processor.outer.PNG?raw=true)
+![AttackProcessor inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.processor.inner.PNG?raw=true)
 
 Questo componente è adibito al processing dell attacco. Come da principio durante gli stati di attesa l output equivarrà a l'input. Durante la fase di attacco questo componente distingue due casi:
 - *Stato di preparazione:* in questo stato (1° bit di stato a 0) l'AttackProcessor fornirà in output 01 (valore che rappresenta una sezione di nave) se il valore in input è 00 (valore che rappresenta l'acqua) in modo da permettere il posizionamento delle navi.
@@ -164,8 +164,8 @@ Questo componente è adibito al processing dell attacco. Come da principio duran
 Lo sviluppo di questo componente, una volta definito il principio di progettazione e quindi il comportamento dell'AttackProcessor, si è ridotto a una semplice tabella di verità.
 
 ### ShipCountManager
-![ShipCountManager Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/ship.count.manager.outer.png)
-![ShipCountManager inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/ship.count.manager.inner.png)
+![ShipCountManager Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/ship.count.manager.outer.PNG?raw=true)
+![ShipCountManager inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/ship.count.manager.inner.PNG?raw=true)
 
 Lo ShipCountManager è adibito alla gestione del contatore delle navi di ogni giocatore. Il suo compito è quello di incrementare o decrementare il corretto contatore in base alla fase di gioco. 
 Per lo scopo è stato realizzato un sommatore a 4 bit. Il concetto di base è quello di sommare zero in stato di attesa mentre sommare +1 o -1 in base alla situazione; per fare cio, essendo  i contatori a 3 bit e dovendovi sommarci un valore negativo, internamente espandiamo il valore a 4 bit in modo da poter utilizzare il -1 (1111) in complento a 2.
@@ -193,15 +193,15 @@ Selezione del constatore:
 Mettendo in XOR i primi 2 bit dello stato otteniamo il giocatore su cui agire, questa informazione viene utilizzita per selezionare contatori attraverso lo stesso meccanismo del multiplexer.
 
 ### AttackKeeper
-![AttackKeeper Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/attack.keeper.outer.png)
-![AttackKeeper inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/attack.keeper.inner.png)
+![AttackKeeper Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.keeper.outer.PNG?raw=true)
+![AttackKeeper inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.keeper.inner.PNG?raw=true)
 
 Questo è un semplice componente che in base allo stato del gioco seleziona opportunamente l'attacco da eseguire; esso riceve in input i due output delle keypad e fornisce in output quello corrispondente al giocatore che detiene il turno appendendovici in prima posizione il bit che rappresenta la griglia su cui agire, ovvero quella del giocatore corrente se siamo in stato di preparazione oppure quella dell'avversario se sivamo in stato di gioco. Il circuito seleziona l'input attraverso il medesimo meccanismo di un comune multiplexer, mentre calcola il bit del giocatore attraverso un XOR fra stato di gioco e turno. (2° e 3° bit di stato). 
 
 
 ### Keypad
-![keypad Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/keypad.outer.png)
-![keypad inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/keypad.inner.png)
+![keypad Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/keypad.outer.PNG?raw=true)
+![keypad inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/keypad.inner.PNG?raw=true)
 
 Il keypad è adibito alla selezione dell'attacco e alla modifica di stato in stato di attacco; è composto da 2 registri e un flipflop.
 I due registri memorizzano la selezione delle cordinate ove attaccare. Ogni bottone, mediante un opportuno circuito, salva nel registro il valore ad esso corrispondente. Cosi facendo all' 1°input corrispondente al tasto 'A' corrdisponderà il valore 00 e cosi via. L'ultimo input è adibito al submit dell'attacco, esso si limita a salvare che la mossa è stata lanciata. Ciuascuna delle memorie è collegata al segnale di reset in modo tale che al passaggio di turno oppure all'avvio di una nuova partita le memorie vengano azzerate. I 3 valori delle memorie sono unite cosi come definito nelle specifiche e portati in output.
@@ -211,8 +211,8 @@ Per quanto riguarda l'aspetetto esteriore del componente, ho optato per una sing
 
 
 ### StateManager
-![StateManager Appearance](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/state.manager.outer.png)
-![StateManager inner](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/state.manager.inner.png)
+![StateManager Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/state.manager.outer.PNG?raw=true)
+![StateManager inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/state.manager.inner.PNG?raw=true)
 
 Questo componente ha il compito di aggiornare adeguatamnte lo stato. Per farlo tiene conto di 5 variabili. lo stato corrente del gioco, i due contatori correnti, e i due valori di attacco dei due giocatori.
 - *Calcolo dello stato di attacco (giallo):* Seleziona il flag di attacco dell giocatore corrente e lo nega se se il giocatore aveva gia attaccato.
@@ -263,7 +263,7 @@ Lo sviluppo di questa parte è stata una delle piu difficili, infatti, diversant
 <br>
 
 ## Interazione dei componenti
-![Interazione](https://raw.githubusercontent.com/vassallocarlo/arch1-exam-project/master/screenshot/battleship.png)
+![Interazione](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/battleship.PNG?raw=true)
 I componenti sopra descritti interagioscono fra loro principalemente mediante lo stato, infatti, come da principio i componenti reagiscono allo stato di attacco. il perno fondamentale del circuito e quindi lo stato. le informazioni sulla partita sono tutte memorizzate nella memoria che è presentata visivamente all'utente mediante i due display di gioco, per quanto riguarda le griglie, attraverso i due display a 7 segmenti per quanto riguarda il numero di navi, e attraverso un led per il turno.
 l'interazione utente-circuito avviene mediante il keypad, che trasmettera la selezione all'AttackKeeper il cui output verra usato dalla memoria come indirizzo di lettura/scrittura, al che AttackProcessor utilizzera questo valore come valore da processare e valutando anche lo stato corrente metterà in output il dovuto valore, valore su cui reagirà lo ShipCountManager aggiornando a dovere i contatori. Tutte queste interazioni pero non hanno alcun effetto fintanto che lo stato non muta in stato di attacco. Questo evento è gestito dallo StateManager che presa visione del effetivo attacco da parte dell'utente mediante il keypad metterà a 1 il valore del'ultimo bit dello stato, scatenando una reazione in tutti gli altri componenti che collaborando fra loro andranno a scrivere un nuovo valore all'interno della memoria, che a sua volta causera un cambiamento sulle periferiche di output.
 Vi è un bottone comune hai due giocatori che una volta premuto resetta il valore delle memorie permettendo una nuova partita. come gia spiegato questo risolve i problemi relativi all'inizializzazione dei valori nella memoria. Tutto il circuito è sincronizzato con un clock. La presenza del clock del bottone di reset, se non opportunamente gestiti portavano all'errore di oscillazione, che è stato risolto impedendo al clock di propagarsi sui registi qunado vi è il segnale di reset su di essi.
