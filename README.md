@@ -54,7 +54,7 @@ Componenti:
 
 
 ### Display
-![Display Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/attack.keeper.inner.PNG?raw=true)
+![Display Appearance](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/display.driver.outer.PNG?raw=true)
 ![Display inner](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/display.driver.inner.PNG?raw=true)
 Questo componente ha il compito di mostrare ai giocatori lo stato delle proprie navi ed è composto da:
 - **96 led:** in gruppi da quatto che rappresentano le celle della griglia di gioco. Ogni cella puo assumere la colorazione interamente blu, se contiene acqua, interamente grigia se contiene un segmento di nave, metà grigia e metà blu a formare una croce se rappresenta un segmento di nave che è stato colpito. Per ottenere 2 colori è stato settato come colore del led spento il colore celeste e grigio per il led acceso. La tensione su ogni led è gestita dal driver del display.
@@ -171,7 +171,7 @@ Lo ShipCountManager è adibito alla gestione del contatore delle navi di ogni gi
 Per lo scopo è stato realizzato un sommatore a 4 bit. Il concetto di base è quello di sommare zero in stato di attesa mentre sommare +1 o -1 in base alla situazione; per fare cio, essendo  i contatori a 3 bit e dovendovi sommarci un valore negativo, internamente espandiamo il valore a 4 bit in modo da poter utilizzare il -1 (1111) in complento a 2.
 Il circuito è diviso in 2 parti:
 - *Selezione dell'operazione* (blu) che seleziona +1 in stato di preparazione alla partita e -1 in stato di gioco, in modo tale da incrementare il contatore ogni volta che un giocatore posiziona una nave e decrementarlo ogni volta che una nave viene affondata. 
-Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza. In supplemento a quanto detto vi è un circuito (riportato in giallo) che gestisce la situazione in cui un giocatore attacchi o posizioni una nave in una cella ove vi è gia una nave affondata o una nave propria nave posizionata. Per fare cio, sono stati messi in XOR il valore corrente e il valore prossimo, il risultato in AND con la selezione dell'operazione, nei casi sopra citati, porta a 0 l output in modo tale da sommare 0 e non modificare il contatore.
+Il cicuito prende quindi in input lo stato e l'output del AttackProcessor in modo tale da essere consapevole dell'effetto della mossa corrente e agire di conseguenza. In supplemento a quanto detto vi è un circuito (riportato in giallo) che gestisce la situazione in cui un giocatore attacchi o posizioni una nave in una cella ove vi è gia una nave affondata o una nave propria. Per fare cio, sono stati messi in XOR il valore corrente e il valore prossimo, il risultato in AND con la selezione dell'operazione, nei casi sopra citati, porta a 0 l output in modo tale da sommare 0 e non modificare il contatore.
 - *Selezione del contatore:* (rosso) che in base allo stato della partita e al giocatore corrente seleziona l'appropriato contatore, overro il medesimo del giocatore se siamo nella fase di preparazione, o il contatore opposto al giocatore che detiene il turno se siamo in fase di partita.
 
 Selezione dell'operazione:
@@ -259,14 +259,12 @@ Questo componente ha il compito di aggiornare adeguatamnte lo stato. Per farlo t
 #### Considerazioni
 Lo sviluppo di questa parte è stata una delle piu difficili, infatti, diversante dagli altri componenti, non ho potuto scrivere una tabella di verità perche le variabili da tenere conto sono stroppe e si sarebbe venuta a creare una tabella molto grande. Per ovviare al porblema ho diviso il circuito in sottoparti; degne di nota sono quelle riguardanti gli stati di gioco s2 e s1. infatti per fare cio, ho creato un sotto componente che si accorgesse che il contatore de giocatore corrente è stato riempito, in modo tale da dover considerare una sola variabile ansiche 6, riducendo notevolmente la tabella di verità - sopra riportata -.
 
-<br>
-<br>
 
 ## Interazione dei componenti
 ![Interazione](https://github.com/vassallocarlo/arch1-exam-project/blob/master/screenshot/battleship.PNG?raw=true)
 I componenti sopra descritti interagioscono fra loro principalemente mediante lo stato, infatti, come da principio i componenti reagiscono allo stato di attacco. il perno fondamentale del circuito e quindi lo stato. le informazioni sulla partita sono tutte memorizzate nella memoria che è presentata visivamente all'utente mediante i due display di gioco, per quanto riguarda le griglie, attraverso i due display a 7 segmenti per quanto riguarda il numero di navi, e attraverso un led per il turno.
 l'interazione utente-circuito avviene mediante il keypad, che trasmettera la selezione all'AttackKeeper il cui output verra usato dalla memoria come indirizzo di lettura/scrittura, al che AttackProcessor utilizzera questo valore come valore da processare e valutando anche lo stato corrente metterà in output il dovuto valore, valore su cui reagirà lo ShipCountManager aggiornando a dovere i contatori. Tutte queste interazioni pero non hanno alcun effetto fintanto che lo stato non muta in stato di attacco. Questo evento è gestito dallo StateManager che presa visione del effetivo attacco da parte dell'utente mediante il keypad metterà a 1 il valore del'ultimo bit dello stato, scatenando una reazione in tutti gli altri componenti che collaborando fra loro andranno a scrivere un nuovo valore all'interno della memoria, che a sua volta causera un cambiamento sulle periferiche di output.
-Vi è un bottone comune hai due giocatori che una volta premuto resetta il valore delle memorie permettendo una nuova partita. come gia spiegato questo risolve i problemi relativi all'inizializzazione dei valori nella memoria. Tutto il circuito è sincronizzato con un clock. La presenza del clock del bottone di reset, se non opportunamente gestiti portavano all'errore di oscillazione, che è stato risolto impedendo al clock di propagarsi sui registi qunado vi è il segnale di reset su di essi.
+Vi è un bottone comune hai due giocatori che una volta premuto resetta il valore delle memorie permettendo una nuova partita. come gia spiegato questo risolve i problemi relativi all'inizializzazione dei valori nella memoria. Tutto il circuito è sincronizzato con un clock. La presenza del clock e del bottone di reset, se non opportunamente gestiti portavano all'errore di oscillazione, che è stato risolto impedendo al clock di propagarsi sui registi qunado vi è il segnale di reset su di essi.
 
 
 ## Possibili sviluppi futuri
